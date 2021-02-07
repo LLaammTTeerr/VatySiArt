@@ -1,52 +1,51 @@
 import sys
 import numpy as np
-import matplotlib
-import matplotlib.pyplot
+from PIL import Image, ImageDraw, ImageFont
+import math
 
-arg = sys.argv
+def openimage():
+    global arg
+    arg = sys.argv
+    if len(arg) != 4:
+        print('Wrong number of parameters')
+        sys.exit()
 
-if len(sys.argv) != 2:
-    print('Wrong number of parameters')
-    sys.exit()
+    try:
+        img = Image.open(arg[1])
+    except FileNotFoundError:
+        print('Find not found')
+        sys.exit()
 
-arg = arg[1]
+    return img
 
-try:
-    image = matplotlib.image.imread(arg)
-except FileNotFoundError:
-    print('File not found')
-    sys.exit()
+def CharSelector(h):
+    chars  = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-                          _+~<>i!lI;:,\"^`'. "[::-1]
+    charArr = list(chars)
+    l = len(charArr)
+    mul = l/256
+    return charArr[math.floor(h*mul)]
 
-grey_1 = r"""$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. """
-grey_2 = r" .:-=+*#%@"
-reversed(grey_2)
+def resizeimg(img):
+    img = openimage()
+    fac = arg[3]
+    charWidth = 10
+    charHeight = 18
+    w,h = img.size
+    img = img.resize((int(fac*w),int(fac*h*(charWidth/charHeight))),Image.NEAREST)
+    w,h = img.size
+    pixels = img.load()
 
-rgb_weight = [0.2989, 0.5870, 0.1140]
+    font = ImageFont.truetype(f'C:\\Windows\\Fonts\\{arg[4]}.ttf',15)
+    outputImage = Image.new('RGB',(charWidth*w,charHeight*h),color=(0,0,0))
+    draw = ImageDraw.Draw(outputImage)
 
-rgb_img = image[...,:3]
+    for i in range(h):
+        for j in range(w):
+            print(i,j)
+            r,g,b = pixels[j,i]
+            grey = int((r/3+g/3+b/3))
+            pixels[j,i] = (grey,grey,grey)
+            draw.text((j*charWidth,i*charHeight),CharSelector(grey),
+            font=font,fill = (r,g,b))
 
-gray_rgb = np.dot(rgb_img, rgb_weight)
-
-result = []
-
-H, W = gray_rgb.shape
-
-asp = H/W
-
-h = int(60 * asp)
-
-gray_rgb = np.resize(gray_rgb, (h, 600))
-
-print(H,W)
-
-for row in gray_rgb:
-    row_temp = []
-    for num in row:
-        row_temp.append(grey_1[int(num*69/255)])
-    result.append(row_temp)
-
-for i in result:
-    for j in i:
-        print(j, end='')
-
-    print()
+    outputImage.save(arg[2])
