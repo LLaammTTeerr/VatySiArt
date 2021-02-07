@@ -27,13 +27,17 @@ rgb_img = image[...,:3]
 
 gray_rgb = np.dot(rgb_img, rgb_weight)
 
-#H, W = gray_rgb.shape
-
-#average = np.average(gray_rgb)
-
 result = []
 
-print(gray_rgb)
+H, W = gray_rgb.shape
+
+asp = H/W
+
+h = int(60 * asp)
+
+gray_rgb = np.resize(gray_rgb, (h, 600))
+
+print(H,W)
 
 for row in gray_rgb:
     row_temp = []
@@ -42,4 +46,7 @@ for row in gray_rgb:
     result.append(row_temp)
 
 for i in result:
-    print(i)
+    for j in i:
+        print(j, end='')
+
+    print()
