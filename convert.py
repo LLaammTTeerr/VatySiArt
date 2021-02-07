@@ -6,7 +6,7 @@ import math
 def openimage():
     global arg
     arg = sys.argv
-    if len(arg) != 4:
+    if len(arg) != 5:
         print('Wrong number of parameters')
         sys.exit()
 
@@ -25,9 +25,9 @@ def CharSelector(h):
     mul = l/256
     return charArr[math.floor(h*mul)]
 
-def resizeimg(img):
+def other(img):
     img = openimage()
-    fac = arg[3]
+    fac = int(arg[3])
     charWidth = 10
     charHeight = 18
     w,h = img.size
@@ -49,3 +49,7 @@ def resizeimg(img):
             font=font,fill = (r,g,b))
 
     outputImage.save(arg[2])
+
+if __name__ == "__main__":
+    img = openimage()
+    other(img)
