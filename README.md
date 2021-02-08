@@ -1,4 +1,5 @@
-![Demo Image](https://i.ibb.co/0YXmPDN/test01mod10-1.jpg)
+![Demo Image 1](https://i.ibb.co/0YXmPDN/test01mod10-1.jpg)
+![Demo Image 2](https://i.ibb.co/Jn4jryq/astronaut-spacesuit-reflection-144426-3840x21601.jpg)
 
 # VatySiArt
 
@@ -29,7 +30,7 @@ cd VatySiArt
 ## Usage
 
 ```bash
-python3 asciiart.py [infile.jpg] [outfile.jpg] [scalefactor] [fontsize] [word] [mode]
+python3 vatisiart.py [infile.jpg] [outfile.jpg] [scalefactor] [fontsize] [word] [mode]
 ```
 
 - Scale Factor: the time to scale the image, can be float. Advise to be around 0.1 - 0.5

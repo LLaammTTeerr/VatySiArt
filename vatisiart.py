@@ -110,9 +110,9 @@ def main():
     
     print(f'Loop: {w} x {h}')
 
-    choice = input('Procceed? (Y/N)')
+    choice = input('Procceed? (Y/N)? ')
 
-    if choice == "Y":
+    if choice.upper() == "Y":
 
         for i in range(h):
             for j in range(w):
