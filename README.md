@@ -45,11 +45,13 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 
-## License
-[GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
-
 ## About the authour
 
 This project is created by **LamkQmobile** aka **Vatylcan**
 
-> No such thing is useless, but there are thing you don't know how to use in a usefull way
+> No such thing is useless, but there are thing you don't know how to use in a usefull way.
+
+## License
+This project is released under GNU GPLv3 license. Read the link for more!
+
+[GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
