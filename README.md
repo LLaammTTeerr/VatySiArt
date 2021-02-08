@@ -11,6 +11,7 @@ Avaiable for MacOS, Window and Linux.
 
 - Python 3.x installed
 - PILLOW package installed
+
 You can install via:
 ```bash
 pip install PILLOW
