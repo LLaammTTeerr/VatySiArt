@@ -2,9 +2,7 @@
 
 VatySiArt is a simple program to generated an ASCII art from an image.
 
-Currently Under Development. Only avaiable for Window.
-
-Stay tunned for MacOS and Linux
+Avaiable for MacOS, Window and Linux
 
 ## Installation
 
@@ -30,9 +28,6 @@ Word: the character to use by the program
 Mode: 0 for the word to be sequence. For example: if the word is 'Katy' then you will find Katy. 1 for the word to be chosen randomly
 
 See the file for easy understanding
-
-For example:
-
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
