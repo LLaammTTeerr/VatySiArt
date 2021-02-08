@@ -59,4 +59,4 @@ This project is released under GNU GPLv3 license. Read the link for more!
 
 This project is created by **LamkQmobile** aka **Vatylcan**
 
-> No such thing is useless, but there are thing you don't know how to use in a usefull way.
+> No such thing is useless, there is only thing you don't know how to use in a useful way.
