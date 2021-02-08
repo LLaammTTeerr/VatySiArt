@@ -31,7 +31,7 @@ cd VatySiArt
 ## Usage
 
 ```bash
-python3 vatisiart.py --i [Input file] --o [Out file] --sc [Scale] --ft [Font size] --w [Word] --m [Mode]
+python3 vatysiart.py --i [Input file] --o [Out file] --sc [Scale] --ft [Font size] --w [Word] --m [Mode]
 ```
 
 - Input file and Out file are required. Others arguments if not input will be the default value.
