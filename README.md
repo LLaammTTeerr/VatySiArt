@@ -1,8 +1,8 @@
 # VatySiArt
 
-VatySiArt is a simple program to generated an ASCII art from an image.
+VatySiArt is a simple program to generated an **ASCII art** from an *image*.
 
-Avaiable for MacOS, Window and Linux
+Avaiable for MacOS, Window and Linux.
 
 ## Requirements
 
@@ -47,3 +47,9 @@ Please make sure to update tests as appropriate.
 
 ## License
 [GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
+
+## About the authour
+
+This project is created by **LamkQmobile** aka **Vatylcan**
+
+> No such thing is useless, but there are thing you don't know how to use in a usefull way
