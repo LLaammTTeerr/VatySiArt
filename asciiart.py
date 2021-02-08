@@ -88,10 +88,14 @@ def main():
     #get the pixels color set
     pixels = img.load()
 
+    #Draw black plain canvas
     ouputimg = Image.new('RGB', (W*w,H*h),color=(0,0,0))
     draw = ImageDraw.Draw(ouputimg)
 
+    #Configure the font
     font = ImageFont.truetype(f'{cu_dir} + \\micross.ttf', int(arg[4]))
+
+    #Check if everything user input is all right
 
     print(f'')
 
@@ -106,21 +110,26 @@ def main():
     
     print(f'Loop: {w} x {h}')
 
-    input('Procceed?')
+    choice = input('Procceed? (Y/N)')
 
-    for i in range(h):
-        for j in range(w):
+    if choice == "Y":
 
-            r,g,b = pixels[j,i]
+        for i in range(h):
+            for j in range(w):
 
-            draw.text((j*W,i*H),selectchar(arg[5], int(arg[6])),font=font,fill = (r,g,b))
+                r,g,b = pixels[j,i]
 
-            update_progress((i*w + j+1)/(w*h))
+                draw.text((j*W,i*H),selectchar(arg[5], int(arg[6])),font=font,fill = (r,g,b))
 
-    ouputimg.save(arg[2])
+                update_progress((i*w + j+1)/(w*h))
 
-    print()
-    print('Done, check your file')
+        ouputimg.save(arg[2])
+
+        print()
+        print('Done, check your file')
+    
+    else:
+        print("Proccess cancelled")
 
 
 if __name__ == '__main__':

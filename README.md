@@ -4,6 +4,17 @@ VatySiArt is a simple program to generated an ASCII art from an image.
 
 Avaiable for MacOS, Window and Linux
 
+## Requirements
+
+- Python 3.x installed
+- PILLOW package installed
+You can install via:
+```bash
+pip install PILLOW
+#or
+pip3 install PILLOW
+```
+
 ## Installation
 
 Clone this repository to your computer
