@@ -3,8 +3,14 @@ from PIL import Image, ImageDraw, ImageFont
 import random
 import os
 
-"""
-Program format
+m = """
+Invalid number of parameters
+
+Run again
+
+GUIDE:
+
+Program run format
 python file.py infile.png outfile.png scalefactor fontsize word mode
 
 scalefactor: to scale the image bigger or smaller
@@ -18,11 +24,25 @@ cu_dir = os.path.dirname(__file__)
 #count for sequence mode
 count = 0
 
+def update_progress(progress):
+    barLength = 10 # Modify this to change the length of the progress bar
+    status = ""
+    if isinstance(progress, int):
+        progress = float(progress)
+    if not isinstance(progress, float):
+        progress = 0
+    if progress >= 1:
+        progress = 1
+    block = int(round(barLength*progress))
+    text = "\rPercent: [{0}] {1}% {2}".format( "#"*block + "-"*(barLength-block), progress*100, status)
+    sys.stdout.write(text)
+    sys.stdout.flush()
+
 def argvinput():
 	#count if the number of parameter is correct
     arg = sys.argv
     if len(arg) != 7:
-        print('Wrong number of parameters')
+        print(m)
         sys.exit()
     return arg
 
@@ -91,13 +111,16 @@ def main():
     for i in range(h):
         for j in range(w):
 
-            print(i,j)
-
             r,g,b = pixels[j,i]
 
             draw.text((j*W,i*H),selectchar(arg[5], int(arg[6])),font=font,fill = (r,g,b))
 
+            update_progress((i*w + j+1)/(w*h))
+
     ouputimg.save(arg[2])
+
+    print()
+    print('Done, check your file')
 
 
 if __name__ == '__main__':
