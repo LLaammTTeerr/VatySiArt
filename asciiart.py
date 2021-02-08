@@ -1,8 +1,7 @@
 import sys
-import numpy as np
 from PIL import Image, ImageDraw, ImageFont
-import math
 import random
+import os
 
 """
 Program format
@@ -13,6 +12,8 @@ word: the character set
 mode: sequence or random (0 for sequence; 1 for random)
 
 """
+
+cu_dir = os.path.dirname(__file__)
 
 #count for sequence mode
 count = 0
@@ -70,7 +71,7 @@ def main():
     ouputimg = Image.new('RGB', (W*w,H*h),color=(0,0,0))
     draw = ImageDraw.Draw(ouputimg)
 
-    font = ImageFont.truetype('C:\\Windows\\Fonts\\micross.ttf', int(arg[4]))
+    font = ImageFont.truetype(f'{cu_dir} + \\micross.ttf', int(arg[4]))
 
     print(f'')
 
