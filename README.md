@@ -1,2 +1,3 @@
-# ASCII_art_from_image_by_Vatylcan
- 
+#VatySiArt
+
+A Simple Program to create ASCII art from image
