@@ -3,7 +3,7 @@
 
 # VatySiArt
 
-VatySiArt is a simple program to generated an **ASCII art** from an *image* like the above one.
+VatySiArt is a simple program to generated an **[ASCII art](https://en.wikipedia.org/wiki/ASCII_art)** from an *image* like the above one.
 
 Avaiable for MacOS, Window and Linux.
 
