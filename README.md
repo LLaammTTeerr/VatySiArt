@@ -1,4 +1,4 @@
-## VatySiArt
+# VatySiArt
 
 VatySiArt is a simple program to generated an ASCII art from an image.
 
