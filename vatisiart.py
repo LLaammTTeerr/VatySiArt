@@ -2,6 +2,7 @@ import sys
 from PIL import Image, ImageDraw, ImageFont
 import random
 import os
+import getopt
 
 m = """
 Invalid number of parameters
@@ -11,11 +12,12 @@ Run again
 GUIDE:
 
 Program run format
-python file.py infile.png outfile.png scalefactor fontsize word mode
+python file.py --i infile.png --o outfile.png --sc scalefactor --ft fontsize --w word --m mode
 
-scalefactor: to scale the image bigger or smaller
-word: the character set
-mode: sequence or random (0 for sequence; 1 for random)
+scalefactor: to scale the image bigger or smaller (default 0.15)
+word: the character set (default 01)
+fontsize: the name say it all (default 15)
+mode: sequence or random (0 for sequence; 1 for random) (default 1)
 
 """
 
@@ -39,11 +41,20 @@ def update_progress(progress):
     sys.stdout.flush()
 
 def argvinput():
-	#count if the number of parameter is correct
-    arg = sys.argv
-    if len(arg) != 7:
-        print(m)
+    arg = ['', '', '0.15', '15', '01', '1']
+
+    argtmp = sys.argv[1:]
+
+    arg_lst = ['--i', '--o', '--sc', '--ft', '--w', '--m']
+
+    for element in arg_lst:
+        if element in argtmp:
+            arg[arg_lst.index(element)] = argtmp[argtmp.index(element) + 1]
+
+    if arg[1] == '' or arg[2] == '':
+        print('Missing critical arguments')
         sys.exit()
+
     return arg
 
 def selectchar(charset, mode):
@@ -67,11 +78,17 @@ def main():
 	#read input
     arg = argvinput()
 
+    print(arg)
+
     #open the image according to the input
-    img = Image.open(arg[1])
+    try:
+        img = Image.open(arg[0])
+    except FileNotFoundError:
+        print('Input file not found')
+        sys.exit()
 
     #image scale factor
-    scale = float(arg[3])
+    scale = float(arg[2])
 
     #font wide and high
     W, H = 10, 18
@@ -93,7 +110,7 @@ def main():
     draw = ImageDraw.Draw(ouputimg)
 
     #Configure the font
-    font = ImageFont.truetype(f'{cu_dir} + \\micross.ttf', int(arg[4]))
+    font = ImageFont.truetype(f'{cu_dir} + \\micross.ttf', int(arg[3]))
 
     #Check if everything user input is all right
 
@@ -101,12 +118,12 @@ def main():
 
     cap = {0: 'Sequence', 1: 'Random'}
 
-    print(f'Input file: {arg[1]}')
-    print(f'Output file: {arg[2]}')
-    print(f'Scale Factor: {arg[3]}')
-    print(f'Font size: {arg[4]}')
-    print(f'Word: {arg[5]}')
-    print(f'Mode: {cap[int(arg[6])]}')
+    print(f'Input file: {arg[0]}')
+    print(f'Output file: {arg[1]}')
+    print(f'Scale Factor: {arg[2]}')
+    print(f'Font size: {arg[3]}')
+    print(f'Word: {arg[4]}')
+    print(f'Mode: {cap[int(arg[5])]}')
     
     print(f'Loop: {w} x {h}')
 
@@ -119,11 +136,11 @@ def main():
 
                 r,g,b = pixels[j,i]
 
-                draw.text((j*W,i*H),selectchar(arg[5], int(arg[6])),font=font,fill = (r,g,b))
+                draw.text((j*W,i*H),selectchar(arg[4], int(arg[5])),font=font,fill = (r,g,b))
 
                 update_progress((i*w + j+1)/(w*h))
 
-        ouputimg.save(arg[2])
+        ouputimg.save(arg[1])
 
         print()
         print('Done, check your file')
