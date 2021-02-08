@@ -78,8 +78,6 @@ def main():
 	#read input
     arg = argvinput()
 
-    print(arg)
-
     #open the image according to the input
     try:
         img = Image.open(arg[0])
