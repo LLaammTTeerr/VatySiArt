@@ -1,3 +1,5 @@
+![Demo Image](https://i.ibb.co/0YXmPDN/test01mod10-1.jpg)
+
 # VatySiArt
 
 VatySiArt is a simple program to generated an **ASCII art** from an *image*.
