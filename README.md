@@ -2,7 +2,7 @@
 
 # VatySiArt
 
-VatySiArt is a simple program to generated an **ASCII art** from an *image*.
+VatySiArt is a simple program to generated an **ASCII art** from an *image* like the above one.
 
 Avaiable for MacOS, Window and Linux.
 
@@ -40,7 +40,7 @@ python3 asciiart.py [infile.jpg] [outfile.jpg] [scalefactor] [fontsize] [word] [
 
 - Mode: 0 for the word to be sequence. For example: if the word is 'Katy' then you will find Katy. 1 for the word to be chosen randomly
 
-See the file for easier understanding
+See the test file for easier understanding
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
